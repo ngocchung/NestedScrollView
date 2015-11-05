@@ -76,14 +76,17 @@ public class MyLinearLayoutManager extends LinearLayoutManager {
                     getPaddingLeft() + getPaddingRight(), p.width);
             int childHeightSpec = ViewGroup.getChildMeasureSpec(heightSpec,
                     getPaddingTop() + getPaddingBottom(), p.height);
-            if (position == 0) {
-                view.measure(childWidthSpec, childHeightSpec);
-                measuredDimension[0] = view.getMeasuredWidth() + p.leftMargin + p.rightMargin;
-                measuredDimension[1] = view.getMeasuredHeight() + p.bottomMargin + p.topMargin;
-            } else {
-                measuredDimension[0] = 0;
-                measuredDimension[1] = 0;
-            }
+//            if (position == 0) {
+//                view.measure(childWidthSpec, childHeightSpec);
+//                measuredDimension[0] = view.getMeasuredWidth() + p.leftMargin + p.rightMargin;
+//                measuredDimension[1] = view.getMeasuredHeight() + p.bottomMargin + p.topMargin;
+//            } else {
+//                measuredDimension[0] = 0;
+//                measuredDimension[1] = 0;
+//            }
+            view.measure(childWidthSpec, childHeightSpec);
+            measuredDimension[0] = view.getMeasuredWidth() + p.leftMargin + p.rightMargin;
+            measuredDimension[1] = view.getMeasuredHeight() + p.bottomMargin + p.topMargin;
             recycler.recycleView(view);
         }
     }
