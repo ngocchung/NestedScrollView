@@ -19,8 +19,6 @@ import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         RVAdapter adapter = new RVAdapter();
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         // recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //final CustomLinearLayoutManager layoutManager = new CustomLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         // final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -63,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private int getScreenHeight(Context context) {
