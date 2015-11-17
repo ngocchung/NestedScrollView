@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         RVAdapter adapter = new RVAdapter();
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         // recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //final CustomLinearLayoutManager layoutManager = new CustomLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         // layoutManager = new LinearLayoutManager(this);
         final MyLinearLayoutManager layoutManager = new MyLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false, getScreenHeight(this));
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(recyclerViewAdapter);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
