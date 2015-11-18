@@ -99,7 +99,9 @@
                 android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/cardview2" />
+                android:layout_below="@+id/cardview2"
+                android:clipToPadding="false"
+                android:paddingTop="0dp"/>
 
         </RelativeLayout>
 

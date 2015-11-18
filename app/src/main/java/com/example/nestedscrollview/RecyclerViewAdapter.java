@@ -7,22 +7,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
+    private boolean mWithHeader;
+
     public RecyclerViewAdapter() {
+        mWithHeader = false;
+    }
+
+    public RecyclerViewAdapter(boolean withHeader) {
+        mWithHeader = withHeader;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(viewType == TYPE_HEADER)
-        {
+        if (viewType == TYPE_HEADER) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.header_item, parent, false);
-            return  new HeaderViewHolder(v);
-        }
-        else if(viewType == TYPE_ITEM) {
+            return new HeaderViewHolder(v);
+        } else if (viewType == TYPE_ITEM) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
             return new ItemViewHolder(v);
         }
@@ -36,14 +41,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     // need to override this method
     @Override
     public int getItemViewType(int position) {
-        if(isPositionHeader(position))
+        if (isPositionHeader(position))
             return TYPE_HEADER;
         return TYPE_ITEM;
     }
 
-    private boolean isPositionHeader(int position)
-    {
-        return position == 0;
+    private boolean isPositionHeader(int position) {
+        return this.mWithHeader && position == 0;
     }
 
     @Override
@@ -56,11 +60,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         super.onAttachedToRecyclerView(recyclerView);
     }
 
-    public static class HeaderViewHolder extends RecyclerView.ViewHolder{
+    public static class HeaderViewHolder extends RecyclerView.ViewHolder {
         final CardView cardView;
+
         public HeaderViewHolder(View itemView) {
             super(itemView);
-            cardView = (CardView)itemView.findViewById(R.id.cardview_header);
+            cardView = (CardView) itemView.findViewById(R.id.cardview_header);
         }
     }
 
@@ -69,7 +74,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         ItemViewHolder(View itemView) {
             super(itemView);
-            cardView = (CardView)itemView.findViewById(R.id.cardview);
+            cardView = (CardView) itemView.findViewById(R.id.cardview);
         }
     }
 }

@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        RVAdapter adapter = new RVAdapter();
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter();
+        // RVAdapter adapter = new RVAdapter();
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(true); // true: with header
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         // recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //final CustomLinearLayoutManager layoutManager = new CustomLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        // final CustomLinearLayoutManager layoutManager = new CustomLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         // final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         // layoutManager = new LinearLayoutManager(this);
         final MyLinearLayoutManager layoutManager = new MyLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false, getScreenHeight(this));
@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             wm.getDefaultDisplay().getSize(size);
-
             measuredHeight = size.y;
         } else {
             Display d = wm.getDefaultDisplay();
