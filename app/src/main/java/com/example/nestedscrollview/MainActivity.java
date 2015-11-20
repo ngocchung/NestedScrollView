@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(recyclerViewAdapter);
 
+        recyclerView.setNestedScrollingEnabled(false); // Disables scrolling for RecyclerView
+        // recyclerView.setHasFixedSize(false);
+
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
