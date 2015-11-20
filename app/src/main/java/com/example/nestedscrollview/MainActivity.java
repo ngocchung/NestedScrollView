@@ -39,14 +39,14 @@ public class MainActivity extends AppCompatActivity {
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(true); // true: with header
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         // recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        // final CustomLinearLayoutManager layoutManager = new CustomLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        final CustomLinearLayoutManager layoutManager = new CustomLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         // final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         // layoutManager = new LinearLayoutManager(this);
-        final MyLinearLayoutManager layoutManager = new MyLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false, getScreenHeight(this));
+        //final MyLinearLayoutManager layoutManager = new MyLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false, getScreenHeight(this));
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(recyclerViewAdapter);
 
-        recyclerView.setNestedScrollingEnabled(false); // Disables scrolling for RecyclerView
+        recyclerView.setNestedScrollingEnabled(false); // Disables scrolling for RecyclerView, CustomLinearLayoutManager used instead of MyLinearLayoutManager
         // recyclerView.setHasFixedSize(false);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
